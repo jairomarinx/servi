@@ -1,3 +1,4 @@
+```mermaid
 erDiagram
 
     USER {
@@ -16,7 +17,7 @@ erDiagram
 
     CATEGORY {
         string id PK
-        string parent_id FK "Opcional para subcategorias"
+        string parent_id FK
         string name
         string slug
         boolean is_active
@@ -34,9 +35,9 @@ erDiagram
     VERIFICATION_DOC {
         string id PK
         string provider_id FK
-        string document_type "DNI, Certificado, Pasado Judicial"
+        string document_type
         string file_url
-        string status "pending, approved, rejected"
+        string status
         text rejection_reason
         datetime created_at
     }
@@ -47,7 +48,7 @@ erDiagram
         string category_id FK
         string title
         text description
-        decimal list_price "Precio base ofertado"
+        decimal list_price
         boolean is_active
         datetime created_at
         datetime updated_at
@@ -64,8 +65,8 @@ erDiagram
         string id PK
         string customer_id FK
         string service_id FK
-        decimal agreed_price "Precio final negociado"
-        string status "pending, accepted, in_progress, completed, cancelled"
+        decimal agreed_price
+        string status
         boolean is_urgent
         datetime scheduled_for
         datetime created_at
@@ -78,7 +79,7 @@ erDiagram
         string previous_status
         string new_status
         string changed_by_user_id FK
-        datetime created_at "Fecha del cambio"
+        datetime created_at
     }
 
     MESSAGE {
@@ -86,32 +87,31 @@ erDiagram
         string request_id FK
         string sender_id FK
         text content
-        datetime read_at "Null si no leido"
+        datetime read_at
         datetime created_at
     }
 
     RATING {
         string id PK
         string request_id FK
-        string reviewer_id FK "Quien califica"
-        string target_user_id FK "A quien califican"
+        string reviewer_id FK
+        string target_user_id FK
         integer score
         text comment
         datetime created_at
     }
 
-    %% Relaciones
-    USER ||--o{ PROVIDER : "se convierte en"
-    CATEGORY ||--o{ CATEGORY : "tiene subcategorias"
-    CATEGORY ||--o{ SERVICE : "clasifica"
-    
-    PROVIDER ||--o{ VERIFICATION_DOC : "sube"
-    PROVIDER ||--o{ SERVICE : "ofrece"
-    SERVICE ||--o{ SERVICE_PHOTO : "tiene"
-    
-    USER ||--o{ REQUEST : "solicita (cliente)"
-    SERVICE ||--o{ REQUEST : "genera (venta/preventa)"
-    
-    REQUEST ||--o{ MESSAGE : "contiene"
-    REQUEST ||--o{ REQUEST_LOG : "tiene historial"
-    REQUEST ||--o{ RATING : "produce"
+    USER ||--o{ PROVIDER : becomes
+    CATEGORY ||--o{ CATEGORY : subcategory_of
+    CATEGORY ||--o{ SERVICE : classifies
+
+    PROVIDER ||--o{ VERIFICATION_DOC : uploads
+    PROVIDER ||--o{ SERVICE : offers
+    SERVICE ||--o{ SERVICE_PHOTO : has
+
+    USER ||--o{ REQUEST : requests
+    SERVICE ||--o{ REQUEST : generates
+
+    REQUEST ||--o{ MESSAGE : contains
+    REQUEST ||--o{ REQUEST_LOG : history
+    REQUEST ||--o{ RATING : produces
