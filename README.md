@@ -1,5 +1,6 @@
 # Servi  
 A simple and practical marketplace for real world local services
+Live project page: **https://servi.cam**
 
 ## Overview  
 Servi is an open project that aims to make it easier for people to offer local services and for others to hire them with confidence. Providers can create a service portfolio with photos, prices and descriptions. Customers can browse, compare and hire services in a few steps.
