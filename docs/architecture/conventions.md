@@ -28,7 +28,7 @@
 
 ## Stack
 - Backend: Laravel latest stable
-- Frontend: Vue 3 + Inertia.js
-- CSS: Bootstrap 5
+- Frontend: Livewire 3
+- CSS: Tailwind CSS
 - DB: MariaDB
 - Auth: Laravel Sanctum
