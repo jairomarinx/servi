@@ -6,7 +6,7 @@
 
 ## Up next
 - [ ] Laravel migrations from ERD
-- [ ] Configure PostgreSQL
+- [ ] Configure MariaDB
 - [ ] Scaffold models with relationships
 - [ ] Auth flow
 - [ ] Person profile post-register

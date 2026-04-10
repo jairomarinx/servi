@@ -61,6 +61,8 @@
 | name | VARCHAR(100) | |
 | slug | VARCHAR(100) | unique |
 | icon | VARCHAR(100) NULL | |
+| created_at | TIMESTAMP | |
+| updated_at | TIMESTAMP | |
 
 ## skills
 | Field | Type | Notes |
@@ -69,6 +71,8 @@
 | category_id | BIGINT UNSIGNED FK | → categories.id |
 | name | VARCHAR(100) | |
 | slug | VARCHAR(100) | unique |
+| created_at | TIMESTAMP | |
+| updated_at | TIMESTAMP | |
 
 ## services
 | Field | Type | Notes |
@@ -157,3 +161,4 @@
 | rating | TINYINT | 1 to 5 |
 | comment | TEXT NULL | |
 | created_at | TIMESTAMP | |
+| updated_at | TIMESTAMP | |

@@ -30,5 +30,5 @@
 - Backend: Laravel latest stable
 - Frontend: Vue 3 + Inertia.js
 - CSS: Bootstrap 5
-- DB: PostgreSQL
+- DB: MariaDB
 - Auth: Laravel Sanctum
